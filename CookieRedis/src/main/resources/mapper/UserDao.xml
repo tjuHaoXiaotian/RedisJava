@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.tju.scs.dao.UserDao">
+
+    <!--<insert id="insertAirport" parameterType="java.util.List">-->
+        <!--INSERT INTO t_airport (name,iata,icao,lon,lat,country) VALUES-->
+        <!--<foreach collection="list" item="item" separator=",">-->
+            <!--(#{item.name},#{item.iata},#{item.icao},#{item.lon},#{item.lat},#{item.country})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <select id="hasMatchUser" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM user WHERE  username = #{username} AND password = #{password}
+    </select>
+
+
+    <select id="getAll" resultType="cn.edu.tju.scs.entity.User">
+        SELECT id,username FROM user
+    </select>
+</mapper>
